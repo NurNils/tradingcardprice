@@ -1,0 +1,23 @@
+.background {
+  width: 100%;
+  height: inherit;
+  // background: linear-gradient(-45deg, #4177ff, $color-blue-dark, $color-blue-500);
+  background: linear-gradient(-45deg, #fff, #000, #395ba8);
+  background-size: 400% 400%;
+  animation: gradient 15s ease infinite;
+  z-index: 0;
+  // background-image: url('/assets/images/products/box/IMGP0197-min.jpg');
+  // background-repeat: no-repeat;
+  // background-size: cover;
+}
+
+.content {
+  width: 90vw;
+  max-width: 1000px;
+  text-align: center;
+  margin: 0 auto;
+  padding: 10px 0;
+  .content-text {
+    text-align: left;
+  }
+}

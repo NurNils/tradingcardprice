@@ -1,0 +1,204 @@
+@import '../../styles';
+
+.top-bar {
+  padding: 15px 10px 15px;
+  border-radius: 0;
+  z-index: 1;
+  position: relative;
+  color: $color-white;
+  // background: $color-blue-500 -webkit-linear-gradient(left, $color-blue-700, $color-blue-300);
+  background-color: $color-blue-dark;
+
+  &.home {
+    //-webkit-box-shadow: 0 2px 5px 0 $color-grey-overlay-25;
+    //-moz-box-shadow: 0 2px 5px 0 $color-grey-overlay-25;
+    //-box-shadow: 0 2px 5px 0 $color-grey-overlay-25;
+    background-color: transparent;
+  }
+
+  .logo {
+    font-size: 14px;
+    color: $color-white;
+    margin-right: 160px;
+
+    &.icon {
+      margin-right: 5px;
+    }
+
+    img {
+      -webkit-filter: drop-shadow(0 2px 2px rgba(10, 16, 20, 0.24));
+      filter: drop-shadow(0 2px 2px rgba(10, 16, 20, 0.24));
+      height: 54px;
+      position: absolute;
+      top: 11px;
+    }
+    .name {
+      padding-left: 45px;
+      font-weight: bold;
+      font-size: 20px;
+      position: relative;
+      top: 2px;
+    }
+  }
+
+  .links {
+    max-width: 800px;
+    overflow: scroll;
+    .item {
+      font-size: 24px;
+      text-decoration: none;
+      color: $color-white;
+      border: solid 1px transparent;
+      margin: 0 9px;
+      padding: 1px 10px 7px 10px;
+      border: solid 2px transparent;
+      &.active {
+        border: solid 2px $color-white;
+      }
+    }
+  }
+
+  .social-media {
+    i {
+      font-size: 20px;
+    }
+    &.twitter {
+      color: $color-platform-twitter;
+    }
+    &.instagram {
+      color: $color-platform-instagram;
+    }
+    &.youtube {
+      color: $color-platform-youtube;
+    }
+    &.twitch {
+      color: $color-platform-twitch;
+    }
+    &.discord {
+      color: $color-platform-discord;
+    }
+  }
+  .left {
+    float: left;
+    * {
+      margin: 0 2px;
+    }
+  }
+  .right {
+    float: right;
+    * {
+      margin: 0 2px;
+    }
+  }
+}
+
+mat-sidenav-content {
+  height: 100vh;
+  background-color: $color-blue-dark;
+}
+
+mat-sidenav {
+  background-color: $color-blue-dark;
+  color: $color-white;
+  text-decoration: none;
+
+  .header {
+    text-align: center;
+
+    &:hover {
+      cursor: pointer;
+      background-color: #32373a;
+    }
+
+    &.show-filler {
+      padding: 10px 0;
+    }
+
+    .icon {
+      padding: 8px;
+      width: 30px;
+      vertical-align: middle;
+    }
+
+    .logo {
+      padding: 8px;
+      max-width: 200px;
+      vertical-align: middle;
+    }
+
+    .name {
+      font-weight: bold;
+      font-size: 26px;
+      transition: opacity 0.05s ease;
+      transition-delay: 0.2s;
+      opacity: 1;
+      vertical-align: middle;
+    }
+  }
+
+  .links {
+    text-align: center;
+
+    a {
+      color: $color-white;
+      text-decoration: none;
+    }
+
+    button {
+      &.mat-icon-button {
+        margin: 2px 0;
+      }
+      mat-icon {
+        font-size: 26px;
+        margin-left: -2px;
+        margin-top: -2px;
+      }
+
+      &:hover {
+        background-color: #32373a;
+      }
+
+      &.active {
+        background-color: #32373a;
+      }
+    }
+
+    .item {
+      text-align: left;
+      width: 100%;
+      font-size: 17px;
+
+      .text {
+        text-overflow: ellipsis;
+        padding-left: 8px;
+      }
+
+      .new {
+        background-color: $color-red-500;
+        color: $color-white;
+        font-size: small;
+        border-radius: 4px;
+        padding: 1px 3px;
+      }
+    }
+  }
+
+  .toggle-button {
+    width: 100%;
+    position: sticky;
+    margin-top: 60px;
+    text-align: center;
+    &.show-filler {
+      text-align: right;
+    }
+    button {
+      mat-icon {
+        font-size: 26px;
+      }
+
+      &:hover {
+        background-color: #32373a;
+      }
+    }
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "name": "tradingcardprice-api",
+  "version": "1.0.0",
+  "description": "Tradingcardprice REST API",
+  "main": "tradingcardprice.js",
+  "scripts": {
+    "start": "nodemon tradingcardprice.js",
+    "format": "prettier --write \"./**/*.{js,json,ts,html,scss}\"",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "homepage": "https://tradingcardprice.com",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "cors": "^2.8.5",
+    "dotenv": "^8.2.0",
+    "ebay-node-api": "^2.8.11",
+    "express": "^4.17.1",
+    "https": "^1.0.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^5.9.16",
+    "nodemon": "^2.0.4",
+    "prettier": "^2.1.2",
+    "request": "^2.88.2"
+  }
+}

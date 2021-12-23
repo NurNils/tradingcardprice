@@ -1,0 +1,147 @@
+<!-- Content -->
+<div id="content" *ngIf="data">
+  <!-- Game -->
+  <mat-card class="panel" *ngIf="data.games">
+    <button mat-fab class="games icon">
+      <mat-icon>shopping_basket</mat-icon>
+    </button>
+    <p class="title">{{ 'games' | translate }}</p>
+    <p class="subtitle">{{ data.games.length }} {{ 'games' | translate }}</p>
+    <br />
+    <mat-card class="card-info" *ngFor="let game of data.games">
+      <p class="text">
+        {{ game.displayname[translate.getDefaultLang()] }}
+        <small>({{ game.dates.lastChanges | date }})</small>
+      </p>
+      <!-- Actions -->
+      <button mat-raised-button color="primary" (click)="editGame(game)">
+        <mat-icon>edit</mat-icon> {{ 'edit' | translate }}
+      </button>
+      <button mat-button color="accent" (click)="duplicateGame(game)">
+        <mat-icon>content_copy</mat-icon> {{ 'duplicate' | translate }}
+      </button>
+      <button mat-button color="error" (click)="deleteGame(game)">
+        <mat-icon>delete</mat-icon> {{ 'delete' | translate }}
+      </button>
+    </mat-card>
+    <button mat-raised-button color="primary" (click)="addGame()">
+      <mat-icon>add</mat-icon> {{ 'add' | translate }}
+    </button>
+  </mat-card>
+
+  <!-- Supercategory -->
+  <mat-card class="panel" *ngIf="data.supercategories">
+    <button mat-fab class="supercategories icon">
+      <mat-icon>shopping_basket</mat-icon>
+    </button>
+    <p class="title">{{ 'supercategories' | translate }}</p>
+    <p class="subtitle">{{ data.supercategories.length }} {{ 'supercategories' | translate }}</p>
+    <br />
+    <mat-card class="card-info" *ngFor="let supercategory of data.supercategories">
+      <p class="text">
+        {{ supercategory.displayname[translate.getDefaultLang()] }}
+        <small>({{ supercategory.dates.lastChanges | date }})</small>
+      </p>
+      <!-- Actions -->
+      <button mat-raised-button color="primary" (click)="editSupercategory(supercategory)">
+        <mat-icon>edit</mat-icon> {{ 'edit' | translate }}
+      </button>
+      <button mat-button color="accent" (click)="duplicateSupercategory(supercategory)">
+        <mat-icon>content_copy</mat-icon> {{ 'duplicate' | translate }}
+      </button>
+      <button mat-button color="error" (click)="deleteSupercategory(supercategory)">
+        <mat-icon>delete</mat-icon> {{ 'delete' | translate }}
+      </button>
+    </mat-card>
+    <button mat-raised-button color="primary" (click)="addSupercategory()">
+      <mat-icon>add</mat-icon> {{ 'add' | translate }}
+    </button>
+  </mat-card>
+
+  <!-- Category -->
+  <mat-card class="panel" *ngIf="data.categories">
+    <button mat-fab class="categories icon">
+      <mat-icon>shopping_basket</mat-icon>
+    </button>
+    <p class="title">{{ 'categories' | translate }}</p>
+    <p class="subtitle">{{ data.categories.length }} {{ 'categories' | translate }}</p>
+    <br />
+    <mat-card class="card-info" *ngFor="let category of data.categories">
+      <p class="text">
+        {{ category.displayname[translate.getDefaultLang()] }}
+        <small>({{ category.dates.lastChanges | date }})</small>
+      </p>
+      <!-- Actions -->
+      <button mat-raised-button color="primary" (click)="editCategory(category)">
+        <mat-icon>edit</mat-icon> {{ 'edit' | translate }}
+      </button>
+      <button mat-button color="accent" (click)="duplicateCategory(category)">
+        <mat-icon>content_copy</mat-icon> {{ 'duplicate' | translate }}
+      </button>
+      <button mat-button color="error" (click)="deleteCategory(category)">
+        <mat-icon>delete</mat-icon> {{ 'delete' | translate }}
+      </button>
+    </mat-card>
+    <button mat-raised-button color="primary" (click)="addCategory()">
+      <mat-icon>add</mat-icon> {{ 'add' | translate }}
+    </button>
+  </mat-card>
+
+  <!-- Products -->
+  <mat-card class="panel" *ngIf="data.products">
+    <button mat-fab class="products icon">
+      <mat-icon>shopping_basket</mat-icon>
+    </button>
+    <p class="title">{{ 'products' | translate }}</p>
+    <p class="subtitle">{{ data.products.length }} {{ 'products' | translate }}</p>
+    <br />
+    <mat-card class="card-info" *ngFor="let product of data.products">
+      <p class="text">
+        {{ product.displayname[translate.getDefaultLang()] }}
+        <small>({{ product.dates.lastChanges | date }})</small>
+      </p>
+      <!-- Actions -->
+      <button mat-raised-button color="primary" (click)="editProduct(product)">
+        <mat-icon>edit</mat-icon> {{ 'edit' | translate }}
+      </button>
+      <button mat-button color="accent" (click)="duplicateProduct(product)">
+        <mat-icon>content_copy</mat-icon> {{ 'duplicate' | translate }}
+      </button>
+      <button mat-button color="error" (click)="deleteProduct(product)">
+        <mat-icon>delete</mat-icon> {{ 'delete' | translate }}
+      </button>
+    </mat-card>
+    <button mat-raised-button color="primary" (click)="addProduct()">
+      <mat-icon>add</mat-icon> {{ 'add' | translate }}
+    </button>
+  </mat-card>
+
+  <!-- Items -->
+  <mat-card class="panel" *ngIf="data.items">
+    <button mat-fab class="items icon">
+      <mat-icon>shopping_basket</mat-icon>
+    </button>
+    <p class="title">{{ 'items' | translate }}</p>
+    <p class="subtitle">{{ data.items.length }} {{ 'items' | translate }}</p>
+    <br />
+    <mat-card class="card-info" *ngFor="let item of data.items">
+      <p class="text">
+        {{ item.displayname[translate.getDefaultLang()] }}
+        <small>({{ item.dates.lastChanges | date }})</small>
+      </p>
+      <!-- Actions -->
+      <button mat-raised-button color="primary" (click)="editItem(item)">
+        <mat-icon>edit</mat-icon> {{ 'edit' | translate }}
+      </button>
+      <button mat-button color="accent" (click)="duplicateItem(item)">
+        <mat-icon>content_copy</mat-icon> {{ 'duplicate' | translate }}
+      </button>
+      <button mat-button color="error" (click)="deleteItem(item)">
+        <mat-icon>delete</mat-icon> {{ 'delete' | translate }}
+      </button>
+    </mat-card>
+    <button mat-raised-button color="primary" (click)="addItem()">
+      <mat-icon>add</mat-icon> {{ 'add' | translate }}
+    </button>
+  </mat-card>
+</div>

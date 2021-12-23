@@ -1,0 +1,154 @@
+<!-- Sidenav -->
+<mat-sidenav-container autosize>
+  <mat-sidenav
+    #sidenav
+    [mode]="getSidenavMode()"
+    [ngStyle]="getSidenavStyle()"
+    (click)="sidenav.close()"
+  >
+    <!-- Header -->
+    <div
+      class="header"
+      routerLink="/"
+      [class.show-filler]="showFiller"
+      [matTooltip]="showFiller ? null : appName"
+      matTooltipPosition="after"
+    >
+      <img
+        [hidden]="showFiller"
+        class="icon show-filler"
+        src="assets/images/symbol.png"
+        alt="{{ appName }} Logo"
+      />
+      <img
+        [hidden]="!showFiller"
+        class="logo"
+        src="assets/images/logo.png"
+        alt="{{ appName }} Logo"
+      />
+    </div>
+
+    <!-- Router Links -->
+    <div class="links">
+      <ng-container *ngIf="!showFiller">
+        <ng-container
+          (click)="sidenav.close()"
+          *ngFor="let link of getLinksGeneral(); let i = index"
+        >
+          <a [routerLink]="link.routerLink">
+            <button
+              mat-icon-button
+              [class.active]="router.isActive(link.routerLink[0], true)"
+              [matTooltip]="link.i18n | translate"
+              matTooltipPosition="after"
+            >
+              <mat-icon [matBadge]="link.new ? '!' : null" matBadgeColor="warn">{{
+                link.icon
+              }}</mat-icon>
+            </button>
+          </a>
+        </ng-container>
+      </ng-container>
+      <ng-container *ngIf="showFiller">
+        <ng-container *ngFor="let link of getLinksGeneral(); let i = index">
+          <a [routerLink]="link.routerLink">
+            <button
+              mat-button
+              class="item"
+              [class.active]="router.isActive(link.routerLink[0], true)"
+            >
+              <mat-icon>{{ link.icon }}</mat-icon>
+              <span class="text"
+                >{{ link.i18n | translate }}
+                <span *ngIf="link.new" class="new">{{ 'general.new' | translate }}</span></span
+              >
+            </button>
+          </a>
+        </ng-container>
+      </ng-container>
+    </div>
+
+    <!-- Toggle -->
+    <div class="toggle-button" [class.show-filler]="showFiller">
+      <button mat-icon-button (click)="toggleFiller(); $event.stopPropagation()">
+        <mat-icon>{{ showFiller ? 'keyboard_arrow_left' : 'keyboard_arrow_right' }}</mat-icon>
+      </button>
+    </div>
+  </mat-sidenav>
+  <!-- Sidenav Content -->
+  <mat-sidenav-content>
+    <!-- Top Bar -->
+    <div class="top-bar" [class.home]="router.isActive('/', true)">
+      <!-- Social Media -->
+      <ng-container>
+        <!-- Toggle -->
+        <button type="button" mat-icon-button (click)="sidenav.toggle()" *ngIf="showLinks()">
+          <mat-icon>menu</mat-icon>
+        </button>
+        <!-- Back
+        <button type="button" mat-icon-button (click)="onBackButtonClick()">
+          <mat-icon>arrow_back</mat-icon>
+        </button>
+        -->
+        <!-- Forward
+        <button type="button" mat-icon-button (click)="onForwardButtonClick()">
+          <mat-icon>arrow_forward</mat-icon>
+        </button>
+         -->
+        <!-- Logo -->
+        <a [routerLink]="['/']" class="logo" [class.icon]="showIcon()">
+          <img
+            [hidden]="!showIcon()"
+            class="icon"
+            src="assets/images/symbol.png"
+            alt="{{ appName }} Logo"
+          />
+          <img
+            [hidden]="showIcon()"
+            class="logo"
+            src="assets/images/logo.png"
+            alt="{{ appName }} Logo"
+          />
+        </a>
+
+        <!-- Links -->
+        <ng-container *ngIf="!showLinks()">
+          <span class="links">
+            <ng-container *ngFor="let link of getLinksGeneral(); let i = index">
+              <a [routerLink]="link.routerLink">
+                <button
+                  mat-button
+                  class="item"
+                  [class.active]="router.isActive(link.routerLink[0], i === 0)"
+                >
+                  <mat-icon>{{ link.icon }}</mat-icon>
+                  <span class="text"
+                    >{{ link.i18n | translate }}
+                    <!-- <span *ngIf="link.new" class="new">{{ 'general.new' | translate }}</span></span> -->
+                  </span>
+                </button>
+              </a>
+            </ng-container>
+          </span>
+
+          <!-- Search -->
+          <span class="links">
+            <app-search></app-search>
+          </span>
+        </ng-container>
+      </ng-container>
+
+      <div class="right">
+        <!-- Language -->
+        <app-language-wrapper></app-language-wrapper>
+
+        <!-- Login -->
+        <a [routerLink]="['/login']">
+          <button mat-raised-button color="primary">{{ 'login' | translate }}</button>
+        </a>
+      </div>
+    </div>
+    <!-- Content -->
+    <ng-content></ng-content>
+  </mat-sidenav-content>
+</mat-sidenav-container>

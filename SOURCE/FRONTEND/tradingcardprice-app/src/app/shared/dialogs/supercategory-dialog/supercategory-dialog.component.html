@@ -1,0 +1,133 @@
+<h2 mat-dialog-title>{{ 'supercategory.title' | translate }}</h2>
+<mat-dialog-content *ngIf="supercategoryFormGroup">
+  <p>{{ 'supercategory.subtitle' | translate }}</p>
+  <!-- Supercategory form -->
+  <form [formGroup]="supercategoryFormGroup">
+    <!-- Activated -->
+    <mat-slide-toggle formControlName="activated">{{ 'activated' | translate }}</mat-slide-toggle>
+    <br />
+    <br />
+
+    <!-- Key -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'key' | translate }}</mat-label>
+      <input matInput color="primary" required formControlName="key" />
+    </mat-form-field>
+    <br />
+
+    <!-- Displayname -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'displayname' | translate }}</mat-label>
+      <input
+        matInput
+        color="primary"
+        required
+        disabled
+        value="{{ supercategoryFormGroup.get('displayname').value[translate.getDefaultLang()] }}"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="
+          translateItemService.openTranslateItemDialog(supercategoryFormGroup, 'displayname')
+        "
+      >
+        <mat-icon>language</mat-icon>
+      </button>
+    </mat-form-field>
+    <br />
+
+    <!-- Description -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'description' | translate }}</mat-label>
+      <input
+        matInput
+        color="primary"
+        required
+        disabled
+        value="{{ supercategoryFormGroup.get('description').value[translate.getDefaultLang()] }}"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="
+          translateItemService.openTranslateItemDialog(supercategoryFormGroup, 'description', true)
+        "
+      >
+        <mat-icon>language</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <!-- Priority -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'priority' | translate }}</mat-label>
+      <input matInput type="number" required formControlName="priority" />
+      <mat-icon class="info" matSuffix matTooltip="{{ 'priority-hint' | translate }}"
+        >info</mat-icon
+      >
+    </mat-form-field>
+    <!-- Thumbnail -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'thumbnail' | translate }}</mat-label>
+      <input matInput color="primary" required formControlName="thumbnail" />
+      <!--
+            <button
+            mat-icon-button
+            matSuffix
+            (click)="
+                imageService.openImageGalleryDialog(supercategoryFormGroup, 'thumbnail', false)
+            "
+            >
+            <mat-icon>insert_photo</mat-icon>
+            </button>
+            -->
+    </mat-form-field>
+
+    <!-- GameId -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'gameId' | translate }}</mat-label>
+      <input matInput color="primary" required formControlName="gameId" disabled />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="idService.openIdsGalleryDialog(supercategoryFormGroup, 'gameId', 'game', false)"
+      >
+        <mat-icon>videogame_asset</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <!-- Categories -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'categories' | translate }}</mat-label>
+      <input matInput color="primary" required formControlName="categories" />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="
+          idService.openIdsGalleryDialog(supercategoryFormGroup, 'categories', 'category', true)
+        "
+      >
+        <mat-icon>category</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <!-- Clicks -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'clicks' | translate }}</mat-label>
+      <input matInput type="number" required formControlName="clicks" />
+      <mat-icon class="info" matSuffix matTooltip="{{ 'clicks-hint' | translate }}">info</mat-icon>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>{{ 'cancel' | translate }}</button>
+  <button
+    mat-raised-button
+    type="submit"
+    color="primary"
+    [disabled]="supercategoryFormGroup.invalid"
+    (click)="save()"
+  >
+    {{ 'save' | translate }}
+  </button>
+</mat-dialog-actions>

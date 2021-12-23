@@ -1,0 +1,137 @@
+<h2 mat-dialog-title>{{ 'item.title' | translate }}</h2>
+<mat-dialog-content *ngIf="itemFormGroup">
+  <p>{{ 'item.subtitle' | translate }}</p>
+  <!-- Item form -->
+  <form [formGroup]="itemFormGroup">
+    <!-- Activated -->
+    <mat-slide-toggle formControlName="activated">{{ 'activated' | translate }}</mat-slide-toggle>
+    <br />
+    <br />
+
+    <!-- Key -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'key' | translate }}</mat-label>
+      <input matInput color="primary" required formControlName="key" />
+    </mat-form-field>
+    <br />
+
+    <!-- Displayname -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'displayname' | translate }}</mat-label>
+      <input
+        matInput
+        color="primary"
+        required
+        disabled
+        value="{{ itemFormGroup.get('displayname').value[translate.getDefaultLang()] }}"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="translateItemService.openTranslateItemDialog(itemFormGroup, 'displayname')"
+      >
+        <mat-icon>language</mat-icon>
+      </button>
+    </mat-form-field>
+    <br />
+
+    <!-- Description -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'description' | translate }}</mat-label>
+      <input
+        matInput
+        color="primary"
+        required
+        disabled
+        value="{{ itemFormGroup.get('description').value[translate.getDefaultLang()] }}"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="translateItemService.openTranslateItemDialog(itemFormGroup, 'description', true)"
+      >
+        <mat-icon>language</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <!-- Priority -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'priority' | translate }}</mat-label>
+      <input matInput type="number" required formControlName="priority" />
+      <mat-icon class="info" matSuffix matTooltip="{{ 'priority-hint' | translate }}"
+        >info</mat-icon
+      >
+    </mat-form-field>
+    <!-- Thumbnail -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'thumbnail' | translate }}</mat-label>
+      <input matInput color="primary" required formControlName="thumbnail" />
+      <!--
+            <button
+            mat-icon-button
+            matSuffix
+            (click)="
+                imageService.openImageGalleryDialog(itemFormGroup, 'thumbnail', false)
+            "
+            >
+            <mat-icon>insert_photo</mat-icon>
+            </button>
+            -->
+    </mat-form-field>
+
+    <!-- Images -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'images' | translate }}</mat-label>
+      <input matInput color="primary" required formControlName="images" />
+      <!--
+            <button
+            mat-icon-button
+            matSuffix
+            (click)="
+                imageService.openImageGalleryDialog(itemFormGroup, 'images', true)
+            "
+            >
+            <mat-icon>insert_photo</mat-icon>
+            </button>
+            -->
+    </mat-form-field>
+
+    <!-- ProductId -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'productId' | translate }}</mat-label>
+      <input matInput color="primary" required formControlName="productId" disabled />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="idService.openIdsGalleryDialog(itemFormGroup, 'productId', 'product', false)"
+      >
+        <mat-icon>view_carousel</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <!-- Index -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'index' | translate }}</mat-label>
+      <input matInput color="primary" required formControlName="index" />
+    </mat-form-field>
+
+    <!-- Clicks -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'clicks' | translate }}</mat-label>
+      <input matInput type="number" required formControlName="clicks" />
+      <mat-icon class="info" matSuffix matTooltip="{{ 'clicks-hint' | translate }}">info</mat-icon>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>{{ 'cancel' | translate }}</button>
+  <button
+    mat-raised-button
+    type="submit"
+    color="primary"
+    [disabled]="itemFormGroup.invalid"
+    (click)="save()"
+  >
+    {{ 'save' | translate }}
+  </button>
+</mat-dialog-actions>

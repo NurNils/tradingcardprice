@@ -1,0 +1,162 @@
+<h2 mat-dialog-title>{{ 'category.title' | translate }}</h2>
+<mat-dialog-content *ngIf="categoryFormGroup">
+  <p>{{ 'category.subtitle' | translate }}</p>
+  <!-- Category form -->
+  <form [formGroup]="categoryFormGroup">
+    <!-- Activated -->
+    <mat-slide-toggle formControlName="activated">{{ 'activated' | translate }}</mat-slide-toggle>
+    <br />
+    <br />
+
+    <!-- New -->
+    <mat-slide-toggle formControlName="new">{{ 'new' | translate }}</mat-slide-toggle>
+    <br />
+    <br />
+
+    <!-- Key -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'key' | translate }}</mat-label>
+      <input matInput color="primary" required formControlName="key" />
+    </mat-form-field>
+    <br />
+
+    <!-- Displayname -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'displayname' | translate }}</mat-label>
+      <input
+        matInput
+        color="primary"
+        required
+        disabled
+        value="{{ categoryFormGroup.get('displayname').value[translate.getDefaultLang()] }}"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="translateItemService.openTranslateItemDialog(categoryFormGroup, 'displayname')"
+      >
+        <mat-icon>language</mat-icon>
+      </button>
+    </mat-form-field>
+    <br />
+
+    <!-- Description -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'description' | translate }}</mat-label>
+      <input
+        matInput
+        color="primary"
+        required
+        disabled
+        value="{{ categoryFormGroup.get('description').value[translate.getDefaultLang()] }}"
+      />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="
+          translateItemService.openTranslateItemDialog(categoryFormGroup, 'description', true)
+        "
+      >
+        <mat-icon>language</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <!-- Priority -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'priority' | translate }}</mat-label>
+      <input matInput type="number" required formControlName="priority" />
+      <mat-icon class="info" matSuffix matTooltip="{{ 'priority-hint' | translate }}"
+        >info</mat-icon
+      >
+    </mat-form-field>
+
+    <!-- Thumbnail -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'thumbnail' | translate }}</mat-label>
+      <input matInput color="primary" required formControlName="thumbnail" />
+      <!--
+            <button
+            mat-icon-button
+            matSuffix
+            (click)="
+                imageService.openImageGalleryDialog(categoryFormGroup, 'thumbnail', false)
+            "
+            >
+            <mat-icon>insert_photo</mat-icon>
+            </button>
+            -->
+    </mat-form-field>
+
+    <!-- Symbol -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'symbol' | translate }}</mat-label>
+      <input matInput color="primary" required formControlName="symbol" />
+      <!--
+            <button
+            mat-icon-button
+            matSuffix
+            (click)="
+                imageService.openImageGalleryDialog(categoryFormGroup, 'symbol', false)
+            "
+            >
+            <mat-icon>insert_photo</mat-icon>
+            </button>
+            -->
+    </mat-form-field>
+
+    <!-- Images -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'images' | translate }}</mat-label>
+      <input matInput color="primary" required formControlName="images" />
+      <!--
+            <button
+            mat-icon-button
+            matSuffix
+            (click)="
+                imageService.openImageGalleryDialog(categoryFormGroup, 'images', true)
+            "
+            >
+            <mat-icon>insert_photo</mat-icon>
+            </button>
+            -->
+    </mat-form-field>
+
+    <!-- GameId -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'gameId' | translate }}</mat-label>
+      <input matInput color="primary" required formControlName="gameId" disabled />
+      <button
+        mat-icon-button
+        matSuffix
+        (click)="idService.openIdsGalleryDialog(categoryFormGroup, 'gameId', 'game', false)"
+      >
+        <mat-icon>videogame_asset</mat-icon>
+      </button>
+    </mat-form-field>
+
+    <!-- Releases -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'releases' | translate }}</mat-label>
+      <input matInput color="primary" required formControlName="releases" />
+    </mat-form-field>
+
+    <!-- Clicks -->
+    <mat-form-field appearance="outline">
+      <mat-label>{{ 'clicks' | translate }}</mat-label>
+      <input matInput type="number" required formControlName="clicks" />
+      <mat-icon class="info" matSuffix matTooltip="{{ 'clicks-hint' | translate }}">info</mat-icon>
+    </mat-form-field>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>{{ 'cancel' | translate }}</button>
+  <button
+    mat-raised-button
+    type="submit"
+    color="primary"
+    [disabled]="categoryFormGroup.invalid"
+    (click)="save()"
+  >
+    {{ 'save' | translate }}
+  </button>
+</mat-dialog-actions>

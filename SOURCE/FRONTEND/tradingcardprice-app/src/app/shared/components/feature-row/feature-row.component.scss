@@ -1,0 +1,69 @@
+@import '../../styles';
+
+.features {
+  display: flex;
+  // background: linear-gradient(-45deg,  $color-blue-300, $color-pink-500, $color-blue-700);
+  background: linear-gradient(-45deg, #018aff, #5e63e6, #0288d1, #7f67ff);
+  animation: gradient 10s ease infinite;
+  background-size: 400% 400%;
+  height: 250px;
+  padding: 50px 0;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+
+  .feature {
+    flex: 1;
+    max-width: 320px;
+    margin: 0 40px;
+    text-align: center;
+
+    .presentation-wrapper {
+      ::ng-deep {
+        img {
+          width: 120px;
+          padding: 20px;
+        }
+      }
+    }
+    .info-container {
+      .icon {
+        font-size: 75px;
+        color: $color-white;
+        padding: 20px;
+      }
+
+      .title {
+        font-size: 30px;
+        color: $color-white;
+      }
+
+      .description {
+        font-size: 17px;
+        color: $color-white;
+      }
+    }
+  }
+}
+
+@include desktop-1024 {
+  .features {
+    .feature {
+      .info-container {
+        .title {
+          font-size: 25px;
+        }
+        .description {
+          font-size: 15px;
+        }
+      }
+    }
+  }
+}
+
+@include desktop-custom(800px) {
+  .features {
+    height: unset !important;
+    flex-direction: column;
+  }
+}

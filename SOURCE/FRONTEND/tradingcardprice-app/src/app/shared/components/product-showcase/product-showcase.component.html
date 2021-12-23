@@ -1,0 +1,23 @@
+<!-- Showcase -->
+<div class="header">
+  <div class="background"></div>
+  <div class="content-container">
+    <!--
+    <div class="logo-wrapper">
+      <img class="logo" src="assets/images/logo.png" />
+    </div>
+    -->
+    <div class="text-wrapper">
+      <h1 class="slogan">{{ appName }}</h1>
+      <markdown class="slogan-second" [data]="'home-content.slogan' | translate"></markdown>
+      <a routerLink="/games/pokemon"
+        ><button mat-raised-button class="link-button" color="primary">
+          <img src="assets/images/games/pokemon/pokemon-logo-min.webp" /></button
+      ></a>
+      <a routerLink="/games/yu-gi-oh"
+        ><button mat-raised-button class="link-button" color="primary">
+          <img src="assets/images/games/yu-gi-oh/yu-gi-oh-logo-min.webp" /></button
+      ></a>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,130 @@
+<div id="product">
+  <!-- product -->
+  <ng-container *ngIf="product">
+    <h1>{{ product.displayname[translateService.currentLang] }}</h1>
+    <img
+      class="product-logo"
+      alt="{{ product.displayname[translateService.currentLang] }} Logo"
+      [src]="product.thumbnail"
+    />
+    <markdown
+      class="product-description"
+      [data]="product.description[translateService.currentLang]"
+    ></markdown>
+  </ng-container>
+
+  <!-- Show items (if exists) -->
+  <mat-card class="items" *ngIf="items && items.length > 0">
+    <div *ngFor="let item of items" class="item">
+      <h2>{{ item.displayname[translateService.currentLang] }}</h2>
+      <img
+        class="item-logo"
+        alt="{{ item.displayname[translateService.currentLang] }} Card"
+        [src]="item.thumbnail"
+      />
+      <markdown
+        class="item-description"
+        [data]="item.description[translateService.currentLang]"
+      ></markdown>
+    </div>
+  </mat-card>
+
+  <!-- Price chart -->
+  <mat-card class="price-chart">
+    <canvas id="priceChart">{{ priceChart }}</canvas>
+  </mat-card>
+
+  <!-- Last purchases -->
+  <div class="purchases">
+    <!-- Filter -->
+    <form *ngIf="filterFormGroup" [formGroup]="filterFormGroup">
+      <mat-form-field>
+        <mat-label>{{ 'filter' | translate }}</mat-label>
+        <input
+          matInput
+          id="apply-filter"
+          (keyup)="applyFilter($event)"
+          placeholder="20"
+          formControlName="filter"
+          #input
+        />
+        <button
+          type="button"
+          *ngIf="filterFormGroup.get('filter').value"
+          matSuffix
+          mat-icon-button
+          (click)="clearFilter()"
+        >
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </form>
+
+    <div class="mat-elevation-z8" #table>
+      <!-- Table -->
+      <table
+        mat-table
+        [dataSource]="dataSource"
+        matSort
+        matSortActive="saleDate"
+        matSortDirection="asc"
+      >
+        <!-- Sale Date Column -->
+        <ng-container matColumnDef="saleDate">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sale-date' | translate }}</th>
+          <td mat-cell *matCellDef="let row">{{ row.saleDate }}</td>
+        </ng-container>
+
+        <!-- Title Column -->
+        <ng-container matColumnDef="title">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'title' | translate }}</th>
+          <td mat-cell *matCellDef="let row">{{ row.title }}</td>
+        </ng-container>
+
+        <!-- Price Column -->
+        <ng-container matColumnDef="price">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sale-price' | translate }}</th>
+          <td mat-cell *matCellDef="let row">{{ row.price | currency: row.currency }}</td>
+        </ng-container>
+
+        <!-- Auction Id Column -->
+        <ng-container matColumnDef="auctionId">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'auction-id' | translate }}</th>
+          <td mat-cell *matCellDef="let row">
+            <a [href]="'https://www.ebay.com/itm/' + row.auctionId" target="_blank"
+              >eBay #{{ row.auctionId }}</a
+            >
+          </td>
+        </ng-container>
+
+        <!-- Seller Id Column -->
+        <ng-container matColumnDef="sellerId">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'seller-id' | translate }}</th>
+          <td mat-cell *matCellDef="let row">
+            <a [href]="'https://www.ebay.com/usr/' + row.sellerId" target="_blank"
+              >eBay {{ row.sellerId }}</a
+            >
+          </td>
+        </ng-container>
+
+        <!-- Sale Type Column -->
+        <ng-container matColumnDef="saleType">
+          <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'sale-type' | translate }}</th>
+          <td mat-cell *matCellDef="let row">{{ row.saleType }}</td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+
+        <!-- Row shown when there is no matching data. -->
+        <tr class="mat-row" *matNoDataRow>
+          <td class="mat-cell" colspan="4" *ngIf="filterFormGroup">
+            No data matching the filter "{{ filterFormGroup.get('filter').value }}"
+          </td>
+        </tr>
+      </table>
+
+      <mat-paginator [pageSizeOptions]="[10, 25, 50, 100]"></mat-paginator>
+    </div>
+  </div>
+</div>

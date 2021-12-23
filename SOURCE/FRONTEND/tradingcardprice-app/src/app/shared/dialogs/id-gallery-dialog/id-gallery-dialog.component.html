@@ -1,0 +1,32 @@
+<h2 mat-dialog-title>{{ 'id-gallery.title' | translate }}</h2>
+<div mat-dialog-content>
+  <p>{{ 'id-gallery.subtitle' | translate }}</p>
+
+  <!-- Selected -->
+  <p>
+    <b>{{ 'id-gallery.selected' | translate: { amount: getAmountSelected() } }}</b>
+    <button mat-icon-button color="primary" (click)="deselectAll()">
+      <mat-icon>unpublished</mat-icon>
+    </button>
+  </p>
+
+  <!-- Saved -->
+  <ng-container *ngFor="let id of ids">
+    <div class="id" [matBadge]="isSelected(id._id) ? 'check' : null">
+      <img
+        [class.selected]="isSelected(id._id)"
+        src="{{ id.thumbnail }}"
+        (click)="isSelected(id._id) ? deselect(id._id) : select(id._id)"
+      />
+      <div>
+        <p>{{ id.displayname.de }}</p>
+      </div>
+    </div>
+  </ng-container>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">{{ 'cancel' | translate }}</button>
+  <button mat-raised-button color="primary" (click)="closeDialog()">
+    {{ 'update' | translate }}
+  </button>
+</div>

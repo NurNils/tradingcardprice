@@ -1,0 +1,146 @@
+<app-card-wrapper>
+  <h1>{{ 'register' | translate }}</h1>
+  <form
+    *ngIf="!needVerification"
+    [formGroup]="registerFormGroup"
+    (ngSubmit)="register()"
+    autocomplete="on"
+  >
+    <!-- E-Mail  -->
+    <mat-form-field appearance="outline">
+      <mat-label for="email">{{ 'e-mail' | translate }}</mat-label>
+      <input
+        matInput
+        color="primary"
+        formControlName="email"
+        id="email"
+        name="email"
+        required
+        minlength="3"
+        maxlength="100"
+      />
+      <mat-error *ngIf="registerFormGroup.get('email').hasError('required')">
+        {{ 'e-mail-required' | translate }}
+      </mat-error>
+      <mat-error
+        *ngIf="
+          registerFormGroup.get('email').hasError('minlength') ||
+          registerFormGroup.get('email').hasError('maxlength')
+        "
+      >
+        {{ 'e-mail-min-max' | translate }}
+      </mat-error>
+      <mat-error
+        *ngIf="
+          registerFormGroup.get('email').hasError('pattern') ||
+          registerFormGroup.get('email').hasError('email')
+        "
+      >
+        {{ 'e-mail-invalid' | translate }}
+      </mat-error>
+      <mat-hint *ngIf="registerFormGroup.get('email').valid" [ngStyle]="{ color: 'green' }">
+        {{ 'e-mail-valid' | translate }}
+      </mat-hint>
+      <mat-hint align="end"
+        >{{
+          registerFormGroup.get('email').value ? registerFormGroup.get('email').value.length : 0
+        }}
+        / 100</mat-hint
+      >
+      <button
+        type="button"
+        *ngIf="registerFormGroup.get('email').value"
+        matSuffix
+        mat-icon-button
+        (click)="registerFormGroup.get('email').patchValue(null)"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <!-- Name  -->
+    <mat-form-field appearance="outline">
+      <mat-label for="nickname">{{ 'username' | translate }}</mat-label>
+      <input
+        matInput
+        color="primary"
+        formControlName="username"
+        id="nickname"
+        name="nickname"
+        required
+        minlength="3"
+        maxlength="25"
+      />
+      <mat-error *ngIf="registerFormGroup.get('username').hasError('required')">
+        {{ 'username-required' | translate }}
+      </mat-error>
+      <mat-error
+        *ngIf="
+          registerFormGroup.get('username').hasError('minlength') ||
+          registerFormGroup.get('username').hasError('maxlength')
+        "
+      >
+        {{ 'username-min-max' | translate }}
+      </mat-error>
+      <mat-error *ngIf="registerFormGroup.get('username').hasError('pattern')">
+        {{ 'username-invalid' | translate }}
+      </mat-error>
+      <mat-hint *ngIf="registerFormGroup.get('username').valid" [ngStyle]="{ color: 'green' }">
+        {{ 'username-valid' | translate }}
+      </mat-hint>
+      <mat-hint align="end"
+        >{{
+          registerFormGroup.get('username').value
+            ? registerFormGroup.get('username').value.length
+            : 0
+        }}
+        / 25</mat-hint
+      >
+      <button
+        type="button"
+        *ngIf="registerFormGroup.get('username').value"
+        matSuffix
+        mat-icon-button
+        (click)="registerFormGroup.get('username').patchValue(null)"
+      >
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-form-field>
+    <!-- Password -->
+    <mat-form-field appearance="outline">
+      <mat-label for="password">{{ 'password' | translate }}</mat-label>
+      <input
+        type="password"
+        matInput
+        color="primary"
+        formControlName="password"
+        id="password"
+        name="password"
+        required
+      />
+    </mat-form-field>
+    <!-- Repeat password -->
+    <mat-form-field appearance="outline">
+      <mat-label for="password">{{ 'repeat-password' | translate }}</mat-label>
+      <input
+        type="password"
+        matInput
+        color="primary"
+        formControlName="repeatPassword"
+        id="password"
+        name="password"
+        required
+      />
+    </mat-form-field>
+    <button mat-raised-button type="submit" color="primary" [disabled]="registerFormGroup.invalid">
+      {{ 'register' | translate }}
+    </button>
+    <!-- Login -->
+    <a [routerLink]="['/login']">
+      {{ 'login-info' | translate }}
+    </a>
+  </form>
+  <div *ngIf="needVerification" class="verification">
+    <img src="assets/images/pikachu.jpg" />
+    <p>{{ 'verification' | translate }}</p>
+  </div>
+</app-card-wrapper>

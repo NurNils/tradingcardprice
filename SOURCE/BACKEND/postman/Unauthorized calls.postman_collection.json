@@ -1,0 +1,171 @@
+{
+	"info": {
+		"_postman_id": "8ad82bc7-1eb2-4154-928c-e083bd6cc4cf",
+		"name": "Unauthorized calls",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST /register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"username\": \"test12w3\",\r\n    \"email\": \"test@test.com\",\r\n    \"password\": \"12345\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}register",
+					"host": [
+						"{{base_url}}register"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"usernameOrEmail\": \"ash@pokemon.com\",\r\n    \"password\": \"IchWillDerAllerBesteSein!!!!123\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}login",
+					"host": [
+						"{{base_url}}login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /logout",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}logout",
+					"host": [
+						"{{base_url}}logout"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /search/:gameKey",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}search/:gameKey?lang=de&search=glurak",
+					"host": [
+						"{{base_url}}search"
+					],
+					"path": [
+						":gameKey"
+					],
+					"query": [
+						{
+							"key": "lang",
+							"value": "de"
+						},
+						{
+							"key": "search",
+							"value": "glurak"
+						}
+					],
+					"variable": [
+						{
+							"key": "gameKey",
+							"value": "pokemon"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /supercategories/:gameKey",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}supercategories/:gameKey",
+					"host": [
+						"{{base_url}}supercategories"
+					],
+					"path": [
+						":gameKey"
+					],
+					"variable": [
+						{
+							"key": "gameKey",
+							"value": "pokemon"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /category-products/:categoryKey",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}category-products/:categoryKey",
+					"host": [
+						"{{base_url}}category-products"
+					],
+					"path": [
+						":categoryKey"
+					],
+					"variable": [
+						{
+							"key": "categoryKey",
+							"value": "pokemon-base-set"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /product-items/:productKey",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}product-items/:productKey",
+					"host": [
+						"{{base_url}}product-items"
+					],
+					"path": [
+						":productKey"
+					],
+					"variable": [
+						{
+							"key": "productKey",
+							"value": "pokemon-base-set-charizard"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

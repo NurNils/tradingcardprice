@@ -1,0 +1,674 @@
+{
+	"info": {
+		"_postman_id": "fa99475c-a061-4d2a-baa6-9f9d35710bec",
+		"name": "Authorized calls (only for admin)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "GET /acp",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}acp",
+					"host": [
+						"{{base_url}}acp"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /game",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}game",
+					"host": [
+						"{{base_url}}game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /game/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}game/:id",
+					"host": [
+						"{{base_url}}game"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "60928605f95c015a5f8ce7de"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /game/:id/duplicate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}game/:id/duplicate",
+					"host": [
+						"{{base_url}}game"
+					],
+					"path": [
+						":id",
+						"duplicate"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "60928605f95c015a5f8ce7de"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /game/:id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}game/:id",
+					"host": [
+						"{{base_url}}game"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "607ea710dbf5a061b0de10c3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /game",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\":\"Test\",\r\n    \"priority\":0,\r\n    \"activated\":true,\r\n    \"displayname\":{\"de\":\"Test\",\"en\":\"Test\"},\r\n    \"description\":{\"de\":\"Beschreibung...\",\"en\":\"Beschreibung...\"},\r\n    \"thumbnail\":\"assets/images/test.png\",\r\n    \"clicks\":0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}game",
+					"host": [
+						"{{base_url}}game"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /game/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}game/:id",
+					"host": [
+						"{{base_url}}game"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "607ea710dbf5a061b0de10c3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /supercategory",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}supercategory",
+					"host": [
+						"{{base_url}}supercategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /supercategory/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}supercategory/:id",
+					"host": [
+						"{{base_url}}supercategory"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "607ea710dbf5a061b0de10c3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /supercategory/:id/duplicate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}supercategory/:id/duplicate",
+					"host": [
+						"{{base_url}}supercategory"
+					],
+					"path": [
+						":id",
+						"duplicate"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "607ea710dbf5a061b0de10c3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /supercategory/:id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}supercategory/:id",
+					"host": [
+						"{{base_url}}supercategory"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "607ea710dbf5a061b0de10c3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /supercategory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\":\"set-sammlung\",\r\n    \"priority\":0,\"gameId\":\"60928605f95c015a5f8ce7de\",\r\n    \"categories\":[\"60928db1f95c015a5f8ce7e1\"],\r\n    \"activated\":true,\r\n    \"displayname\":{\"cn\":null,\"de\":\"Sammlung \",\"en\":\"Collection\",\"es\":null,\"fr\":null,\"it\":null,\"jp\":null,\"nl\":null,\"pl\":null,\"pt\":null,\"ru\":null},\r\n    \"description\":{\"de\":\"Beschreibung...\",\"en\":\"Beschreibung...\"},\r\n    \"thumbnail\":\"assets/images/logo.png\",\r\n    \"clicks\":0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}supercategory",
+					"host": [
+						"{{base_url}}supercategory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /supercategory/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}supercategory/:id",
+					"host": [
+						"{{base_url}}supercategory"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "607ea710dbf5a061b0de10c3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /category",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}category",
+					"host": [
+						"{{base_url}}category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /category/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}category/:id",
+					"host": [
+						"{{base_url}}category"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "607ea710dbf5a061b0de10c3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /category/:id/duplicate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}category/:id/duplicate",
+					"host": [
+						"{{base_url}}category"
+					],
+					"path": [
+						":id",
+						"duplicate"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "607ea710dbf5a061b0de10c3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /category/:id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}category/:id",
+					"host": [
+						"{{base_url}}category"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "607ea710dbf5a061b0de10c3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /category",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\":\"set\",\r\n    \"priority\":0,\r\n    \"gameId\":\"60928605f95c015a5f8ce7de\",\r\n    \"releases\":{\"germany\":\"2021-05-15T10:10:45.248Z\",\"usa\":\"2021-05-15T10:10:45.248Z\"},\r\n    \"activated\":true,\r\n    \"new\":false,\r\n    \"displayname\":{\"de\":\"Basis Set\",\"en\":\"Base Set\"},\"description\":{\"de\":\"Beschreibung...\",\"en\":\"Beschreibung...\"},\r\n    \"thumbnail\":\"assets/images/thumbnail.jpg\",\r\n    \"symbol\":\"assets/images/symbol.jpg\",\r\n    \"images\":\"test.png\",\r\n    \"clicks\":0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}category",
+					"host": [
+						"{{base_url}}category"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /category/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}category/:id",
+					"host": [
+						"{{base_url}}category"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "607ea710dbf5a061b0de10c3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /product",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}product",
+					"host": [
+						"{{base_url}}product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /product/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}product/:id",
+					"host": [
+						"{{base_url}}product"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "607ea710dbf5a061b0de10c3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /product/:id/duplicate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}product/:id/duplicate",
+					"host": [
+						"{{base_url}}product"
+					],
+					"path": [
+						":id",
+						"duplicate"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "607ea710dbf5a061b0de10c3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /product/:id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}product/:id",
+					"host": [
+						"{{base_url}}product"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "607ea710dbf5a061b0de10c3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /product",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\":\"card\",\r\n    \"priority\":0,\r\n    \"gameId\":\"60928605f95c015a5f8ce7de\",\r\n    \"categoryId\":\"60928db1f95c015a5f8ce7e1\",\r\n    \"index\":\"1/102\",\r\n    \"activated\":true,\r\n    \"displayname\":{\"de\":\"Pokemon\",\"en\":\"Pokemon\"},\r\n    \"description\":{\"de\":\"Beschreibung...\",\"en\":\"Beschreibung...\"},\r\n    \"thumbnail\":\"assets/images/games/yu-gi-oh/yu-gi-oh-logo.png\",\r\n    \"rarity\":null,\r\n    \"images\":\"test.png\",\r\n    \"clicks\":0,\r\n    \"ebayKeywords\":\"card ebay keywords\",\r\n    \"ebayCategoryId\":\"card ebay keywords\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}product",
+					"host": [
+						"{{base_url}}product"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /product/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}product/:id",
+					"host": [
+						"{{base_url}}product"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "607ea710dbf5a061b0de10c3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /item",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}item",
+					"host": [
+						"{{base_url}}item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /item/:id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}item/:id/duplicate",
+					"host": [
+						"{{base_url}}item"
+					],
+					"path": [
+						":id",
+						"duplicate"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "607ea710dbf5a061b0de10c3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET /item/:id/duplicate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}item/:id/duplicate",
+					"host": [
+						"{{base_url}}item"
+					],
+					"path": [
+						":id",
+						"duplicate"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "607ea710dbf5a061b0de10c3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT /item/:id",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}item/:id",
+					"host": [
+						"{{base_url}}item"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "607ea710dbf5a061b0de10c3"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST /item",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"key\":\"error-card\",\r\n    \"priority\":0,\r\n    \"productId\":\"60950208c90ea860b258550f\",\r\n    \"index\":\"1/3\",\r\n    \"activated\":true,\r\n    \"displayname\":{\"de\":\"Glurak Shadowless\",\"en\":\"Charizard Shadowless\"},\r\n    \"description\":{\"de\":\"Beschreibung...\",\"en\":\"Beschreibung...\"},\r\n    \"thumbnail\":\"assets/images/games/pokemon/sets/jungle/jungle-logo.png\",\r\n    \"images\":\"test.png\",\r\n    \"clicks\":0\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{base_url}}item",
+					"host": [
+						"{{base_url}}item"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE /item/:id",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "{{base_url}}item/:id",
+					"host": [
+						"{{base_url}}item"
+					],
+					"path": [
+						":id"
+					],
+					"variable": [
+						{
+							"key": "id",
+							"value": "607ea710dbf5a061b0de10c3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

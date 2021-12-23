@@ -1,0 +1,106 @@
+@import '../../../shared/styles';
+
+#content {
+  margin: 0 auto;
+  padding: 5px;
+
+  .panel {
+    margin-top: 5px;
+
+    mat-form-field {
+      max-width: 500px;
+      width: 80%;
+      margin: 20px 0;
+    }
+
+    button {
+      &.icon {
+        float: left;
+      }
+      &.categories {
+        color: $color-white;
+        background-color: $color-red-500;
+      }
+      &.games {
+        color: $color-white;
+        background-color: $color-orange-500;
+      }
+      &.items {
+        color: $color-white;
+        background-color: $color-purple-500;
+      }
+      &.products {
+        color: $color-white;
+        background-color: $color-blue-500;
+      }
+      &.supercategories {
+        color: $color-white;
+        background-color: $color-pink-500;
+      }
+    }
+
+    .title {
+      color: $color-grey-500;
+      margin: 0;
+      padding-left: 65px;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .subtitle {
+      margin-top: 8px;
+      padding-left: 64px;
+      font-weight: 800;
+      font-size: 24px;
+    }
+
+    .card-info {
+      max-height: 40px;
+      margin: 5px 0;
+      padding: 7px 11px;
+      .text {
+        font-size: 16px;
+        font-weight: normal;
+        margin: 0;
+        margin-top: 12px;
+        &.black {
+          color: $color-black;
+        }
+      }
+    }
+
+    .headline {
+      color: $color-grey-500;
+      margin: 0;
+      font-weight: bold;
+      font-size: 19px;
+    }
+
+    .product,
+    .card-info {
+      height: 65px;
+      .text {
+        float: left;
+        padding-left: 0px;
+      }
+
+      button {
+        float: right;
+        margin-left: 5px;
+        &.state-button {
+          color: $color-white;
+        }
+      }
+    }
+  }
+}
+
+@include desktop-custom(1000px) {
+  #content {
+    .panel {
+      .card-info {
+        min-height: 130px;
+      }
+    }
+  }
+}

@@ -1,0 +1,24 @@
+@import '../../styles';
+
+.id {
+  height: 150px;
+  display: inline-block;
+  margin: 10px;
+  text-align: center;
+  img {
+    height: 100%;
+    max-width: 330px;
+    padding: 10px;
+    border: 1px solid $color-black;
+    border-radius: 5px;
+    &:hover {
+      cursor: pointer;
+    }
+    &.selected {
+      border: 1px solid $color-blue-500;
+    }
+  }
+}
+.mat-badge-content {
+  font-family: 'Material Icons';
+}

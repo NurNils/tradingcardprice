@@ -1,0 +1,30 @@
+@import '../../styles';
+
+.feature-group {
+  background-color: $color-white;
+
+  ::ng-deep app-tutorial .tutorial {
+    display: block !important;
+    text-align: center;
+  }
+
+  ::ng-deep app-feature-example {
+    &:nth-of-type(even) {
+      .feature {
+        // background-color: $color-grey-400;
+        .content-container {
+          order: 2;
+          // text-align: right;
+        }
+        .thumbnail-container {
+          order: 1;
+        }
+      }
+    }
+    &:not(:last-child) {
+      .feature {
+        // border-bottom: $color-grey-200 solid 1px;
+      }
+    }
+  }
+}

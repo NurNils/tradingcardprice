@@ -1,0 +1,60 @@
+@import '../../styles';
+
+.header {
+  height: 520px;
+  background-color: $color-white;
+
+  .background {
+    width: 100%;
+    height: inherit;
+    background: linear-gradient(-45deg, #fff, #000, #395ba8);
+    background-size: 400% 400%;
+    animation: gradient 15s ease infinite;
+    position: absolute;
+    z-index: 0;
+  }
+
+  .content-container {
+    display: flex;
+    width: 100%;
+    height: inherit;
+    margin: 0 auto;
+    align-items: center;
+
+    .text-wrapper {
+      flex: 1;
+      z-index: 1;
+      text-align: center;
+      color: $color-white;
+
+      .slogan {
+        text-shadow: 5px 5px rgb(10 16 20 / 36%);
+        font-size: 50px;
+        font-weight: bold;
+        line-height: 45px;
+      }
+
+      .slogan-second {
+        font-size: 24px;
+        line-height: 29px;
+      }
+
+      .link-button {
+        text-transform: uppercase;
+        font-size: 24px;
+        font-weight: bold;
+        height: 46px;
+        border-radius: 30px;
+        padding: 0 20px;
+        margin-right: 5px;
+        color: $color-blue-500;
+        background-color: $color-white;
+        animation: pulse 2s infinite;
+
+        img {
+          height: 45px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,23 @@
+<form [formGroup]="searchFormGroup">
+  <mat-form-field id="type" appearance="fill" appearance="outline" (submit)="search()">
+    <mat-label>{{ 'games' | translate }}</mat-label>
+    <mat-select formControlName="type">
+      <mat-option value="pokemon"> Pokémon </mat-option>
+      <mat-option value="yu-gi-oh"> Yu-Gi-Oh! </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field appearance="outline">
+    <input matInput formControlName="search" />
+    <button
+      type="submit"
+      mat-mini-fab
+      color="primary"
+      matSuffix
+      (click)="search()"
+      [disabled]="searchFormGroup.invalid"
+    >
+      <mat-icon>search</mat-icon>
+    </button>
+  </mat-form-field>
+</form>

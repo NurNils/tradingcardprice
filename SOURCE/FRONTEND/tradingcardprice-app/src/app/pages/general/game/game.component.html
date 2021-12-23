@@ -1,0 +1,67 @@
+<div id="game">
+  <!-- Game -->
+  <ng-container *ngIf="game">
+    <img
+      class="game-logo"
+      alt="{{ game.displayname[translateService.currentLang] }} Logo"
+      [src]="game.thumbnail"
+      width="300"
+      height="140"
+    />
+    <h1>{{ game.displayname[translateService.currentLang] }}</h1>
+    <markdown
+      class="game-description"
+      [data]="game.description[translateService.currentLang]"
+    ></markdown>
+  </ng-container>
+
+  <!-- Categories with searched products -->
+  <div *ngIf="products" class="products">
+    <h1>{{ 'search' | translate: { search: search } }}</h1>
+    <div *ngIf="products.length === 0" class="not-found">
+      <img src="assets/images/card-404.png" />
+      <h2>{{ 'no-result' | translate }}</h2>
+    </div>
+    <ng-container *ngIf="products.length > 0">
+      <mat-card class="category" *ngFor="let category of categories" [routerLink]="category.key">
+        <a [routerLink]="category.key">
+          <h2>{{ category.displayname[translateService.currentLang] }}</h2>
+          <img [src]="category.thumbnail" />
+        </a>
+        <br />
+        <!-- Products -->
+        <div class="items">
+          <div class="product" *ngFor="let product of getProductsByCategoryId(category._id)">
+            <a [routerLink]="category.key + '/' + product.key">
+              <h3>{{ product.displayname[translateService.currentLang] }} ({{ product.index }})</h3>
+              <img [src]="product.thumbnail" />
+            </a>
+          </div>
+        </div>
+      </mat-card>
+    </ng-container>
+  </div>
+
+  <!-- Supercategories -->
+  <div class="supercategory" *ngFor="let supercategory of supercategories">
+    <div class="information">
+      <h2>{{ supercategory.displayname[translateService.currentLang] }}</h2>
+      <markdown [data]="supercategory.description[translateService.currentLang]"></markdown>
+      <!-- Categories -->
+      <a
+        class="category"
+        *ngFor="let category of supercategory.categories"
+        [routerLink]="[category.key]"
+      >
+        <img [src]="category.symbol" />
+        <p>
+          {{ category.displayname[translateService.currentLang] }}
+          <span *ngIf="category.new" class="new">{{ 'new' | translate }}</span>
+        </p>
+      </a>
+    </div>
+    <div class="subinformation">
+      <img [src]="supercategory.thumbnail" />
+    </div>
+  </div>
+</div>

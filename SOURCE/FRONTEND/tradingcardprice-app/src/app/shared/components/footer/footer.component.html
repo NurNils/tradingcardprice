@@ -1,0 +1,85 @@
+<div class="content">
+  <!-- Footer left -->
+  <div class="content-container">
+    <div class="flex-item">
+      <h4 class="footer-headline">{{ appName }}</h4>
+      <ul class="footer-service-box">
+        <li class="footer-service-box-listItem">
+          <a routerLink="/about-us">{{ 'about-us' | translate }}</a>
+        </li>
+        <li class="footer-service-box-listItem">
+          <a routerLink="/legal-notice">{{ 'legal-notice' | translate }}</a>
+        </li>
+        <li class="footer-service-box-listItem">
+          <a href="mailto:{{ email }}">{{ 'contact' | translate }}</a>
+        </li>
+      </ul>
+    </div>
+    <!-- Footer social -->
+    <div class="flex-item">
+      <div class="social-footer-service-box-header"></div>
+      <h4 class="footer-headline">{{ 'follow-us' | translate }}</h4>
+      <ul class="footer-service-box">
+        <li class="footer-service-box-listItem">
+          <a routerLink="/newsletter"
+            >{{ 'newsletter' | translate }}
+            <img
+              class="footer-social-media-logo"
+              src="assets/images/social-media/newsletter.png"
+              alt="newsletter-logo"
+          /></a>
+        </li>
+        <li class="footer-service-box-listItem">
+          <a routerLink=""
+            >Discord
+            <img
+              class="footer-social-media-logo"
+              src="assets/images/social-media/discord.png"
+              alt="discord-logo"
+          /></a>
+        </li>
+        <li class="footer-service-box-listItem">
+          <a routerLink=""
+            >Facebook
+            <img
+              class="footer-social-media-logo"
+              src="assets/images/social-media/facebook.png"
+              alt="facebook-logo"
+          /></a>
+        </li>
+        <li class="footer-service-box-listItem">
+          <a routerLink=""
+            >Instagram
+            <img
+              class="footer-social-media-logo"
+              src="assets/images/social-media/instagram.png"
+              alt="instagram-logo"
+          /></a>
+        </li>
+        <li class="footer-service-box-listItem">
+          <a routerLink=""
+            >Twitch
+            <img
+              class="footer-social-media-logo"
+              src="assets/images/social-media/twitch.png"
+              alt="twitch-logo"
+          /></a>
+        </li>
+        <li class="footer-service-box-listItem">
+          <a routerLink=""
+            >YouTube
+            <img
+              class="footer-social-media-logo"
+              src="assets/images/social-media/youtube.png"
+              alt="youtube-logo"
+          /></a>
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- Copyright -->
+  <markdown
+    class="copyright-container"
+    [data]="'copyright' | translate: { company: company }"
+  ></markdown>
+</div>

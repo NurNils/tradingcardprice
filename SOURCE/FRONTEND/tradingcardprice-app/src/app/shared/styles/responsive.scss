@@ -1,0 +1,160 @@
+/* Responsive mixins */
+
+/* Phone - xxs (iPhone 4) */
+@mixin phone-xxs {
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+  }
+}
+
+@mixin phone-xxs-portrait {
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin phone-xxs-landscape {
+  @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+    @content;
+  }
+}
+
+/* Phone - xs (iPhone 5) */
+@mixin phone-xs {
+  @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+  }
+}
+
+@mixin phone-xs-portrait {
+  @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin phone-xs-landscape {
+  @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+    @content;
+  }
+}
+
+/* Phone - s (iPhone 6) */
+@mixin phone-s {
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    @content;
+  }
+}
+
+@mixin phone-s-portrait {
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin phone-s-landscape {
+  @media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {
+    @content;
+  }
+}
+
+/* Phone - m (iPhone 7) */
+@mixin phone-m {
+  @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+    @content;
+  }
+}
+
+@mixin phone-m-portrait {
+  @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin phone-m-landscape {
+  @media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+    @content;
+  }
+}
+
+/* Phone - l (iPhone X) */
+@mixin phone-l {
+  @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+    @content;
+  }
+}
+
+@mixin phone-l-portrait {
+  @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin phone-l-landscape {
+  @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin phone-all {
+  @media only screen and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
+    @content;
+  }
+}
+
+@mixin phone-all-portrait {
+  @media only screen and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin phone-all-landscape {
+  @media only screen and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {
+    @content;
+  }
+}
+
+/* Desktops */
+
+$desktopList: 1600px, 1440px, 1360px, 1280px, 1024px; // Most used desktop sizes
+
+@mixin desktop-custom($size) {
+  @media only screen
+    and (max-width: #{$size}) {
+    @content;
+  }
+}
+
+/* 1024px */
+@mixin desktop-1024 {
+  @media only screen and (max-width: 1024px) {
+    @content;
+  }
+}
+
+/* 1280px */
+@mixin desktop-1280 {
+  @media only screen and (max-width: 1280px) {
+    @content;
+  }
+}
+
+/* 1360px */
+@mixin desktop-1360 {
+  @media only screen and (max-width: 1360px) {
+    @content;
+  }
+}
+
+/* 1440px */
+@mixin desktop-1440 {
+  @media only screen and (max-width: 1440px) {
+    @content;
+  }
+}
+
+/* 1600px */
+@mixin desktop-1600 {
+  @media only screen and (max-width: 1600px) {
+    @content;
+  }
+}

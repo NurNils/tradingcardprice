@@ -1,0 +1,44 @@
+<!-- Feature Row  -->
+<div class="features">
+  <!-- Feature 1 -->
+  <div class="feature">
+    <div class="presentation-wrapper">
+      <ng-content select="[wrapper1]"></ng-content>
+    </div>
+    <div class="info-container">
+      <a [href]="youTube" target="_blank">
+        <i class="fab fa-youtube icon" aria-hidden="true"></i>
+      </a>
+      <h2 class="title">{{ title1 }}</h2>
+      <p class="description">{{ description1 }}</p>
+    </div>
+  </div>
+
+  <!-- Feature 2 -->
+  <div class="feature">
+    <div class="presentation-wrapper">
+      <ng-content select="[wrapper2]"></ng-content>
+    </div>
+    <div class="info-container">
+      <a [href]="twitch" target="_blank">
+        <i class="fab fa-twitch icon" aria-hidden="true"></i>
+      </a>
+      <h2 class="title">{{ title2 }}</h2>
+      <p class="description">{{ description2 }}</p>
+    </div>
+  </div>
+
+  <!-- Feature 3 -->
+  <div class="feature">
+    <div class="presentation-wrapper">
+      <ng-content select="[wrapper3]"></ng-content>
+    </div>
+    <div class="info-container">
+      <a [href]="instagram" target="_blank">
+        <i class="fab fa-instagram icon" aria-hidden="true"></i>
+      </a>
+      <h2 class="title">{{ title3 }}</h2>
+      <p class="description">{{ description3 }}</p>
+    </div>
+  </div>
+</div>

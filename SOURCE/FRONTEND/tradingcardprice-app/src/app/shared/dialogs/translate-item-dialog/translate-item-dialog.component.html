@@ -1,0 +1,48 @@
+<h2 mat-dialog-title>{{ 'translate-item.title' | translate }}</h2>
+<mat-dialog-content>
+  <p>{{ 'translate-item.subtitle' | translate }}</p>
+  <!-- Translate item form -->
+  <form [formGroup]="translateItemFormGroup">
+    <!-- Normal -->
+    <ng-container *ngIf="!data.markdown">
+      <mat-form-field appearance="outline" *ngFor="let language of languages; let i = index">
+        <mat-label><img src="assets/images/flags/{{ language }}.png" /></mat-label>
+        <input matInput color="primary" [formControlName]="language" [required]="i < 2" />
+      </mat-form-field>
+    </ng-container>
+    <!-- Markdown -->
+    <ng-container *ngIf="data.markdown">
+      <mat-slide-toggle [checked]="markdownPreview" (change)="markdownPreview = !markdownPreview">{{
+        'translate-item.markdown-preview' | translate
+      }}</mat-slide-toggle>
+      <br /><br />
+      <ng-container *ngFor="let language of languages; let i = index">
+        <mat-form-field appearance="outline">
+          <mat-label><img src="assets/images/flags/{{ language }}.png" /></mat-label>
+          <textarea
+            matInput
+            color="primary"
+            [formControlName]="language"
+            [required]="i < 2"
+          ></textarea>
+        </mat-form-field>
+        <markdown
+          *ngIf="markdownPreview"
+          [data]="translateItemFormGroup.get(language).value"
+        ></markdown>
+      </ng-container>
+    </ng-container>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close>{{ 'cancel' | translate }}</button>
+  <button
+    mat-raised-button
+    type="submit"
+    color="primary"
+    [disabled]="translateItemFormGroup.invalid"
+    (click)="saveChanges()"
+  >
+    {{ 'update' | translate }}
+  </button>
+</mat-dialog-actions>

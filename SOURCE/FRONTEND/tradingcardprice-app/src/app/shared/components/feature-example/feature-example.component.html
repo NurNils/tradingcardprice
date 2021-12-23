@@ -1,0 +1,27 @@
+<!-- Feature -->
+<div class="feature">
+  <div class="content-container">
+    <h2 class="title">
+      <a *ngIf="routerLink" [routerLink]="[routerLink]">
+        {{ title }}
+      </a>
+      <span *ngIf="!routerLink">
+        {{ title }}
+      </span>
+    </h2>
+    <markdown class="description opened" data="{{ description }}"></markdown>
+    <!--
+    <markdown class="description" data="{{ description }}" [class.opened]="readMore"></markdown>
+    <button id="read-more" mat-button color="primary" (click)="readMore = !readMore">
+      {{ (readMore ? 'read-less' : 'read-more') | translate }}
+    </button>
+    -->
+  </div>
+  <div class="thumbnail-container">
+    <figure>
+      <img *ngIf="imageSrc" class="thumbnail" alt="{{ imageAlt }}" src="{{ imageSrc }}" />
+      <figcaption *ngIf="imageFigcaption">{{ imageFigcaption }}</figcaption>
+    </figure>
+    <ng-content></ng-content>
+  </div>
+</div>

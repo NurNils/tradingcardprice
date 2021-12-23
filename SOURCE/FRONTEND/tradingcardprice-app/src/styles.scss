@@ -1,0 +1,112 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+// Plus imports for other components in your app.
+
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$tradingcardprice-app-primary: mat-palette($mat-blue);
+$tradingcardprice-app-accent: mat-palette($mat-yellow);
+
+// The warn palette is optional (defaults to red).
+$tradingcardprice-app-warn: mat-palette($mat-red);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$tradingcardprice-app-theme: mat-dark-theme(
+  $tradingcardprice-app-primary,
+  $tradingcardprice-app-accent,
+  $tradingcardprice-app-warn
+);
+
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($tradingcardprice-app-theme);
+
+/* You can add global styles to this file, and also import other style files */
+
+html {
+  height: 100%;
+  scroll-behavior: smooth;
+}
+body {
+  height: 100%;
+  background-color: #111111;
+  color: white;
+  margin: 0;
+  font-family: Roboto, 'Helvetica Neue', sans-serif;
+}
+
+::-webkit-scrollbar {
+  width: 5px !important;
+}
+
+::-webkit-scrollbar-track {
+  background: #e0e0e0 !important;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #03a9f4 !important;
+  &:hover {
+    background: #212121 !important;
+  }
+}
+// Material Overwrites
+mat-dialog-container {
+  mat-form-field {
+    width: 100%;
+    max-width: 400px;
+  }
+}
+mat-sidenav-content {
+  height: 100% !important;
+}
+
+.mat-snackbar-success {
+  color: white;
+  background-color: #4caf50;
+  .mat-simple-snackbar-action {
+    color: white;
+  }
+}
+
+.mat-snackbar-error {
+  color: white;
+  background-color: #f44336;
+  .mat-simple-snackbar-action {
+    color: white;
+  }
+}
+
+//Animations
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(33, 150, 243, 0.7);
+  }
+
+  70% {
+    box-shadow: 0 0 0 10px rgba(233, 30, 99, 0);
+  }
+
+  100% {
+    box-shadow: 0 0 0 0 rgba(33, 150, 243, 0);
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

@@ -1,0 +1,103 @@
+@import '../../../shared/styles';
+
+#game {
+  text-align: center;
+  h1 {
+    font-size: 32px;
+    font-weight: bold;
+    text-decoration: underline;
+  }
+  .game-description {
+    font-size: 18px;
+    font-weight: 500;
+    max-width: 1290px;
+    display: block;
+    margin: 0 auto;
+  }
+  .products {
+    .not-found {
+      h2 {
+        color: #f44336;
+      }
+      img {
+        max-width: 400px;
+      }
+    }
+    .category {
+      text-decoration: none;
+      max-width: 90%;
+      margin: 10px auto;
+      .items {
+        display: flex;
+        .product {
+          flex: 1;
+          margin: 10px;
+        }
+      }
+      a {
+        text-decoration: none;
+        color: white;
+      }
+      img {
+        width: 100%;
+        max-width: 300px;
+      }
+    }
+  }
+  .supercategory {
+    text-align: left;
+    margin: 30px auto;
+    display: flex;
+    max-width: 850px;
+    .information {
+      flex: 3;
+      h2 {
+        border-left-style: solid;
+        border-left-color: #4caf50;
+        border-left-width: 5px;
+        padding-left: 5px;
+      }
+      .category {
+        border-style: solid;
+        padding: 10px 5px;
+        max-width: 90%;
+        margin: 1px 0px;
+        text-decoration: none;
+        color: white;
+        display: flex;
+        background-color: #37474f;
+        p {
+          margin: 0 0 0 5px;
+        }
+        .new {
+          color: #f44336;
+        }
+        img {
+          -webkit-filter: drop-shadow(0px 0px 3px white);
+          filter: drop-shadow(0px 0px 3px white);
+        }
+        &:hover {
+          background-color: #607d8b;
+        }
+      }
+    }
+    .subinformation {
+      flex: 1;
+      img {
+        width: 100%;
+        -webkit-filter: drop-shadow(0px 0px 3px white);
+        filter: drop-shadow(0px 0px 3px white);
+      }
+    }
+  }
+}
+
+@include desktop-1024 {
+  .products {
+    .category {
+      .items {
+        flex-direction: column;
+      }
+    }
+  }
+}

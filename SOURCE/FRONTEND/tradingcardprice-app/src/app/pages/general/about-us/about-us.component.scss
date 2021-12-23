@@ -1,0 +1,32 @@
+.content-container {
+  text-align: center;
+  margin: 30px auto;
+  display: flex;
+  max-width: 1000px;
+  flex-wrap: wrap;
+  font-size: large;
+}
+
+.top-div {
+  text-align: left;
+  margin: 50px auto;
+  display: flex;
+  max-width: 800px;
+}
+
+.bottom-div {
+  text-align: left;
+  margin: 50px auto;
+  display: flex;
+  max-width: 800px;
+}
+
+.top-image {
+  max-width: 200px;
+  margin-left: 50px;
+}
+
+.bottom-image {
+  max-width: 200px;
+  margin-right: 50px;
+}
